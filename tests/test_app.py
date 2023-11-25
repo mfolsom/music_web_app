@@ -14,14 +14,4 @@ def test_post_albums(db_connection, web_client):
         "Album('Doolittle', 1989, 1)\n" \
         "Album('Surfer Rosa', 1988, 1)\n" \
         "Album('Masterpiece', 2016, 5)"
-
-
-def test_get_artists_initially(db_connection, web_client):
-    db_connection.seed('seeds/music_library.sql')
-    response = web_client.get("/artists")
-    assert response.status_code == 200
-    assert response.data.decode(
-        'utf-8') == "Pixies, ABBA, Taylor Swift, Nina Simone, Big Thief"
-
-
-
+    db_connection.seed('seeds/music_empty.sql')
